@@ -1,0 +1,92 @@
+<header class="w-full bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+
+    <!-- Título + Selector -->
+    <div class="flex items-center space-x-6">
+      <h2 class="text-xl font-semibold text-gray-800 tracking-wide">
+        Menú de Marcas de Cubos
+      </h2>
+
+      <select 
+        [(ngModel)]="selectedMarca"
+        (change)="goToMarca(selectedMarca)"
+        class="px-4 py-2 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 
+               hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 
+               transition-all duration-300 shadow-sm cursor-pointer"
+      >
+        <option disabled selected>Selecciona una marca</option>
+        @for (marca of marcas; track $index) {
+            <option>{{ marca }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Links del menú -->
+    <ul class="flex items-center space-x-4">
+      <li>
+        <a 
+          [routerLink]="['/']"
+          routerLinkActive="text-blue-600 font-semibold shadow-sm bg-blue-50"
+          class="px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-700 
+                 transition font-medium text-gray-700"
+        >
+          Cubos
+        </a>
+      </li>
+
+      <li>
+        <a 
+          [routerLink]="['/login']"
+          routerLinkActive="text-blue-600 font-semibold shadow-sm bg-blue-50"
+          class="px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-700 
+                 transition font-medium text-gray-700"
+        >
+          Login
+        </a>
+      </li>
+
+      <li>
+        <a 
+          [routerLink]="['/perfil']"
+          routerLinkActive="text-blue-600 font-semibold shadow-sm bg-blue-50"
+          class="px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-700 
+                 transition font-medium text-gray-700"
+        >
+          Perfil
+        </a>
+      </li>
+
+      <li>
+        <a 
+          [routerLink]="['/compras']"
+          routerLinkActive="text-blue-600 font-semibold shadow-sm bg-blue-50"
+          class="px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-700 
+                 transition font-medium text-gray-700"
+        >
+          Compras
+        </a>
+      </li>
+
+      <li>
+        <a 
+          [routerLink]="['/comprar']"
+          routerLinkActive="text-blue-600 font-semibold shadow-sm bg-blue-50"
+          class="px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-700 
+                 transition font-medium text-gray-700"
+        >
+          Comprar
+        </a>
+      </li>
+    </ul>
+
+    <!-- Botón logout -->
+    <button 
+      (click)="logOut()"
+      class="px-6 py-2 rounded-xl bg-red-500 text-white font-medium 
+             hover:bg-red-600 shadow-md transition-all duration-300"
+    >
+      Log Out
+    </button>
+
+  </div>
+</header>

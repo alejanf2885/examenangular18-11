@@ -1,0 +1,36 @@
+<div class="max-w-7xl mx-auto px-6 py-10">
+    <h1 class="text-4xl font-bold text-gray-900 mb-6">Bienvenido a Home</h1>
+    <h2 class="text-2xl font-semibold text-gray-800 mb-8">Lista de cubos</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        @for (cubo of cubos; track $index) {
+            <div class="card bg-white shadow-md hover:shadow-xl rounded-2xl p-5 border border-gray-200 transition-all duration-300">
+                <img 
+                    src="{{ cubo.imagen }}" 
+                    alt="" 
+                    class="w-full h-52 object-cover rounded-xl mb-4 transition-transform duration-300 hover:scale-105"
+                >
+                
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">{{ cubo.nombre }}</h3>
+                <p class="text-gray-700 mb-1">
+                    Precio: <span class="font-medium text-gray-900">{{ cubo.precio }} €</span>
+                </p>
+
+                <h2 class="text-md font-semibold text-gray-800 mt-2">
+                    Modelo: <span class="font-normal text-gray-700">{{ cubo.modelo }}</span>
+                </h2>
+                <h3 class="text-sm text-gray-600">
+                    Marca: <span class="font-medium text-gray-700">{{ cubo.marca }}</span>
+                </h3>
+
+                <p class="text-gray-700 mt-2">
+                    Color: <span class="font-medium">{{ cubo.color }}</span>
+                </p>
+
+                <p class="text-gray-700">
+                    Valoración: <span class="font-medium">{{ cubo.valoracion }}</span>
+                </p>
+            </div>
+        }
+    </div>
+</div>

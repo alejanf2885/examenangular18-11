@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import UserLog from '../../models/UserLog';
 import UsuarioService from '../../service/UsuarioService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -12,7 +13,7 @@ export class PerfilComponent implements OnInit {
 
   public user!: UserLog;
 
-  constructor(private _usuarioService: UsuarioService) { }
+  constructor(private _usuarioService: UsuarioService , private router: Router) { }
 
   ngOnInit(): void {
     this.loadPerfil();
@@ -22,6 +23,9 @@ export class PerfilComponent implements OnInit {
     this._usuarioService.loadPerfil().then((resolve) => {
       console.log(resolve);
       this.user = resolve;
+    }).catch((error) => {
+      console.error('Error al obtener los detalles del empleado:', error);
+      this.router.navigate(['/login']);
     });
   }
   

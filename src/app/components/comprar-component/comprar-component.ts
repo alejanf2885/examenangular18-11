@@ -35,6 +35,9 @@ export class ComprarComponent implements OnInit {
     this._comprasService.comprarCubo(this.selectedCuboId).then((resolve) => {
       console.log(resolve);
       this.router.navigate(['/compras']);
+    }).catch((error) => {
+      console.error('Error ', error);
+      this.router.navigate(['/login']);
     });
   }
 
